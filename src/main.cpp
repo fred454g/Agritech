@@ -14,7 +14,6 @@ struct Blinker {
   uint32_t interval_ms = 0;
   LedPin pin;
 
-  // Vi fortæller bare kompilatoren, at disse funktioner findes
   void start(LedPin led_pin, int n_blinks, uint32_t duration_ms);
   void update();
 };
@@ -31,13 +30,12 @@ void setup()
   setPinMode(LedPin::Error, OUTPUT);
   setPinMode(LedPin::Warning, OUTPUT);
   setPinMode(LedPin::Ok, OUTPUT);
-
-  //Start med alt slukket
+  
   writePin(LedPin::Error, LOW);
   writePin(LedPin::Warning, LOW);
   writePin(LedPin::Ok, LOW);
 
-    errorBlinker.start(LedPin::Error, 10, 200);
+  errorBlinker.start(LedPin::Error, 10, 200);
 }
 
 void loop()
